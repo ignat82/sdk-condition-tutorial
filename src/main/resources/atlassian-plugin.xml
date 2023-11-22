@@ -7,18 +7,29 @@
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
+    <!-- REST module -->
+    <rest name="${project.artifactId} REST"
+          key="${atlassian.plugin.key}.rest"
+          path="/sdkcondition"
+          version="1.0">
+        <description key="${atlassian.plugin.key}.rest.description">
+            Rest endpoint to debug application
+        </description>
+        <package>${atlassian.plugin.key}.rest</package>
+    </rest>
+
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="sdkcondition"/>
-    
+
     <!-- add our web resources -->
     <web-resource key="sdkcondition-resources" name="sdkcondition Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
+
         <resource type="download" name="sdkcondition.css" location="/css/sdkcondition.css"/>
         <resource type="download" name="sdkcondition.js" location="/js/sdkcondition.js"/>
         <resource type="download" name="images/" location="/images"/>
 
         <context>sdkcondition</context>
     </web-resource>
-    
+
 </atlassian-plugin>

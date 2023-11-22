@@ -6,5 +6,9 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.atlassian.com/schema/atlassian-scanner
         http://www.atlassian.com/schema/atlassian-scanner/atlassian-scanner.xsd">
+
+    <!-- custom bean post processor to handle SdkOnly annotation -->
+    <bean class="ru.samokat.atlassian.jira.tutorials.sdkcondition.postprocessor.SdkConditionAnnotationBeanPostProcessor"/>
+
     <atlassian-scanner:scan-indexes/>
 </beans>

@@ -19,6 +19,14 @@
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
+        <!-- source of spring.beans and spring.aop packages for beanPostProcessor-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
         <!-- lombok dependencies -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -143,6 +151,9 @@
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
+                        <!-- Allows import packages at runtime -->
+                        <DynamicImport-Package>*</DynamicImport-Package>
+
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
 
                         <!-- Add package to export here -->
@@ -182,6 +193,7 @@
     </build>
 
     <properties>
+        <spring.version>5.0.10.RELEASE</spring.version>
         <org.projectlombok.version>1.18.24</org.projectlombok.version>
         <jira.version>8.22.0</jira.version>
         <amps.version>8.1.2</amps.version>

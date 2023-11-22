@@ -1,6 +1,7 @@
 package ru.samokat.atlassian.jira.tutorials.sdkcondition.rest;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.samokat.atlassian.jira.tutorials.sdkcondition.postprocessor.SdkCondition;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -9,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/debugger_controller_class")
 @Slf4j
+@SdkCondition
 public class DebuggerController {
 
     @GET
